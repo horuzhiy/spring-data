@@ -133,7 +133,7 @@ public class DerivedQueryCreator extends AbstractQueryCreator<String, Criteria> 
 
 		query.append("FOR ").append("e").append(" IN ").append(collectionName);
 
-		if (!criteria.getPredicate().isEmpty()) {
+		if (criteria != null && !criteria.getPredicate().isEmpty()) {
 			query.append(" FILTER ").append(criteria.getPredicate());
 		}
 
