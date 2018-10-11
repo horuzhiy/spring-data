@@ -73,6 +73,7 @@ public abstract class AbstractArangoQuery implements RepositoryQuery {
 		}
 
 		final String query = createQuery(accessor, bindVars, options);
+		LOGGER.debug("Execute query: " + query);
 
 		final ResultProcessor processor = method.getResultProcessor().withDynamicProjection(accessor);
 		final Class<?> typeToRead = getTypeToRead(processor);

@@ -368,6 +368,7 @@ public class SimpleArangoRepository<T, ID> implements ArangoRepository<T, ID> {
 		final String query = String.format("FOR e IN %s %s %s RETURN e", getCollectionName(),
 			buildFilterClause(example, bindVars), buildPageableClause(pageable, "e"));
 
+		LOGGER.debug("Execute query: " + query);
 		return arangoOperations.query(query, bindVars,
 			pageable != null && pageable.isPaged() ? new AqlQueryOptions().fullCount(true) : null, domainClass);
 	}
